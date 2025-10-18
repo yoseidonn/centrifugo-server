@@ -32,6 +32,11 @@ fi
 
 # Create directories
 echo -e "${YELLOW}📁 Creating directories...${NC}"
+# Remove old installation if exists
+if [ -d "$CENTRIFUGO_DIR" ]; then
+    echo -e "${YELLOW}🗑️  Removing old installation at $CENTRIFUGO_DIR${NC}"
+    sudo rm -rf "$CENTRIFUGO_DIR"
+fi
 sudo mkdir -p "$LOGS_DIR"
 sudo chown -R centrifugo:centrifugo "$CENTRIFUGO_DIR"
 sudo chmod 750 "$CENTRIFUGO_DIR"

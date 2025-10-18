@@ -1,0 +1,16 @@
+### Get counter
+GET http://localhost:8000/get-counter
+
+### Increment counter
+GET http://localhost:8000/increment-counter
+
+### Set data
+GET http://localhost:8000/set-counter
+Content-Type: application/json
+
+{
+    "value": 10
+}
+
+### Reset counter
+GET http://localhost:8000/reset-counter

@@ -1,0 +1,74 @@
+{
+  "token_hmac_secret_key": "your-secret-key-here",
+  "admin_password": "admin123",
+  "admin_secret": "your-admin-secret",
+  "api_key": "your-api-key",
+  "port": 8000,
+  "allowed_origins": ["*"],
+  "engine": {
+    "type": "redis",
+    "redis": {
+      "address": "redis://localhost:6379",
+      "db": 1,
+      "prefix": "centrifugo"
+    }
+  },
+  "namespaces": [
+    {
+      "name": "messages",
+      "presence": true,
+      "join_leave": true,
+      "history_size": 100,
+      "history_ttl": "300s",
+      "publish": true,
+      "subscribe_to_publish": true
+    },
+    {
+      "name": "notifications",
+      "presence": false,
+      "join_leave": false,
+      "history_size": 50,
+      "history_ttl": "600s",
+      "publish": true,
+      "subscribe_to_publish": false
+    },
+    {
+      "name": "presence",
+      "presence": true,
+      "join_leave": true
+    },
+    {
+      "name": "dm",
+      "presence": true,
+      "join_leave": true,
+      "history_size": 200,
+      "history_ttl": "1800s",
+      "publish": true,
+      "subscribe_to_publish": true
+    },
+    {
+      "name": "voice",
+      "presence": true,
+      "join_leave": true,
+      "history_size": 10,
+      "history_ttl": "60s",
+      "publish": true,
+      "subscribe_to_publish": true
+    }
+  ],
+  "log_level": "info",
+  "log_file": "logs/centrifugo.log",
+  "log_handler": "file",
+  "client_anonymous": false,
+  "client_presence": true,
+  "client_join_leave": true,
+  "client_history": true,
+  "client_recovery": true,
+  "client_subscribe_to_publish": true,
+  "websocket_compression": true,
+  "websocket_read_buffer_size": 4096,
+  "websocket_write_buffer_size": 4096,
+  "websocket_ping_interval": "25s",
+  "websocket_pong_timeout": "5s",
+  "user_subscribe_to_personal": true
+}
